@@ -8,15 +8,29 @@
 </head>
 <body>
     <div class="movie-wrapper">
-        <div class="container" id="theater">
-            <div class="screen"></div>
+        <h1 class="movie-title">Movie Seat Booking</h1>
+        <div class="top-bar">
+            
+            <div class="movie-select">
+                <label>Select a Movie:</label>
+
+                <select id="movie">
+                    <option value="10">Avengers ($10)</option>
+                    <option value="12">Batman ($12)</option>
+                    <option value="8">Spider-Man ($8)</option>
+                    <option value="9">Jurassic World ($9)</option>
+                </select>
+            </div>
+
+            <div class="info">
+                Tickets: <span id="count">0</span>
+                Total: $<span id="total">0</span>
+            </div>
         </div>
 
-        <p class="info">
-            Selected Seats: <span id="seatNumbers">None</span> <br>
-            Tickets: <span id="count">0</span> <br>
-            Total: $<span id="total">0</span>
-        </p>
+        <div class="container" id="theater">
+            <div class="screen"></div>
+        </div>      
     </div>
     
 

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
 
 body {
-    background-color: #000000;
+    background-color: #000000de;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,6 +9,14 @@ body {
     margin:auto;
     font-family: "Lato", sans-serif;
     height: 100vh;
+    color: #fff;
+}
+
+.movie-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px #000000de;
+    text-align: center;
 }
 
 .movie-wrapper {
@@ -17,9 +25,44 @@ body {
   text-align: left;
 }
 
+select{
+  padding:5px;
+  margin:15px;
+  font-size:16px;
+}
+
+.price-info{
+  text-align:left;
+  margin-left:120px;
+  font-weight:bold;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #4b006ede;
+  padding-left: 20px;
+  border-radius: 20px;
+}
+
+.movie-select {
+  font-size: 18px;
+}
+
+.info {
+  font-size: 18px;
+  color: white;
+}
+
+.info span {
+  margin-right: 15px;
+}
+
+
 .screen {
   background-color: #fff;
-  height: 120px;
+  height: 200px;
   width: 100%;
   margin: 15px 0;
   transform: rotateX(-50deg);
@@ -38,7 +81,11 @@ body {
   cursor: pointer;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  color:#000000de;
+  font-weight: bold;
 }
 
 .row {
@@ -67,19 +114,5 @@ body {
   margin-right: 30px;
 }
 
-.info span {
-  display: inline-block;
-  min-width: 150px;  /* ensures the numbers don’t shift the labels */
-}
-
-.info {
-  margin-top: 40px;
-  padding: 10px;
-  text-align: left;
-  font-size: 18px;
-  color: #fff;
-  background-color: #4a017a;
-  border-radius: 10px;
-}
 
 

@@ -1,13 +1,14 @@
 const theater = document.getElementById("theater");
-const seatNumbers = document.getElementById("seatNumbers");
 const count = document.getElementById("count");
 const total = document.getElementById("total");
+const movieSelect = document.getElementById("movie");
 
 const rows = 10;
 const seatsPerRow = 18;
-const ticketPrice = 10;
-const rowLetters = "ABCDEFGHIJ";
+let ticketPrice = Number(movieSelect.value);  // default ticket price based on selected movie
+const rowLetters = "ABCDEFGHIJ";      // row labels for seat numbering
 
+// create theater seating layout
 for (let r = 0; r < rows; r++) {
 
   const row = document.createElement("div");
@@ -28,8 +29,8 @@ for (let r = 0; r < rows; r++) {
       seat.classList.add("aisle");
     }
 
-    // randomly mark some seats as occupied (20% chance)
-    if (Math.random() < 0.2) {
+    // randomly mark some seats as occupied (40% chance)
+    if (Math.random() < 0.4) {
       seat.classList.add("occupied");
     }
     
@@ -39,16 +40,33 @@ for (let r = 0; r < rows; r++) {
   theater.appendChild(row);
 }
 
+// select all available seats
 const seats = document.querySelectorAll(".seat:not(.occupied)");
 
 // add click event to toggle seat selection
 seats.forEach(seat => {
   seat.addEventListener("click", () => {
+    
     seat.classList.toggle("selected");
+
+    // show seat number inside the seat
+    if (seat.classList.contains("selected")) {
+      seat.textContent = seat.dataset.label;
+    } else {
+      seat.textContent = "";
+    }
+
     updateSelection();
   });
 });
 
+// update ticket price when movie selection changes
+movieSelect.addEventListener("change", () => {
+  ticketPrice = Number(movieSelect.value);
+  updateSelection();
+});
+
+// update seat count and total price
 function updateSelection() {
 
   const selectedSeats = document.querySelectorAll(".seat.selected");
@@ -58,7 +76,6 @@ function updateSelection() {
     seatList.push(seat.dataset.label);
   });
 
-  seatNumbers.textContent = seatList.length ? seatList.join(", ") : "None";
   count.textContent = selectedSeats.length;
   total.textContent = selectedSeats.length * ticketPrice;
 }
