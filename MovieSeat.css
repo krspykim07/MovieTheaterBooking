@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+body {
+    background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:auto;
+    font-family: "Lato", sans-serif;
+    height: 100vh;
+}
+
+.movie-wrapper {
+  perspective: 1000px; /* required for rotateX to show depth */
+  display: inline-block; /* shrink to theater width */
+  text-align: left;
+}
+
+.screen {
+  background-color: #fff;
+  height: 120px;
+  width: 100%;
+  margin: 15px 0;
+  transform: rotateX(-50deg);
+  transform-origin: top center; /* pivot from top edge */
+  box-shadow: 0 3px 10px rgba(255,255,255,0.7);
+  border-radius: 5px;
+}
+
+
+.seat {
+  background-color: #100dbd;
+  height: 30px;
+  width: 35px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+}
+
+.seat.selected {
+  background-color: #43f317;
+}
+
+.seat.occupied {
+  background-color: #726d6d;
+  cursor: not-allowed;
+}
+
+.seat:hover:not(.occupied):not(.selected) {
+  background-color: #08d408d3;
+}
+
+.seat:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.aisle {
+  margin-right: 30px;
+}
+
+.info span {
+  display: inline-block;
+  min-width: 150px;  /* ensures the numbers don’t shift the labels */
+}
+
+.info {
+  margin-top: 40px;
+  padding: 10px;
+  text-align: left;
+  font-size: 18px;
+  color: #fff;
+  background-color: #4a017a;
+  border-radius: 10px;
+}
+
+
